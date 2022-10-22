@@ -1,0 +1,75 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+    购物车
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/course/course_index.min.css' %}">
+    <script src="{% static 'js/cart.min.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <ul class="course-list">
+                {% for order in orderitem %}
+                    <li>
+                        <div>{% comment %}{% url 'goods:goods_detail' goods_id=order.goods_id.pk %}{% endcomment %}
+                            <div class="thumbnail-group">
+                                <a href="{% url 'goods:goods_detail' goods_id=order.goods_id.pk %}">
+                                    <img src="{{ order.goods_id.thumbnail }}" alt="" href="{% url 'goods:goods_detail' goods_id=order.goods_id.pk %}" class="thumbnial">
+                                </a>
+                            </div>
+                            <div class="course-info">
+                                <p class="title">{{ order.goods_id.name }}</p>
+                                <p class="price-group">
+                                    <span class="num">{{ order.num }}份</span>
+                                    {% if order.price > 0 %}
+                                        <span class="pay">￥{{ order.price }}</span>
+                                    {% else %}
+                                        <span class="free">免费</span>
+                                    {% endif %}
+                                    <botton class="btn btn-danger btn-xs delete-btn"
+                                            style="cursor:pointer"
+                                            data-order-id="{{ order.order_id.pk }}" data-id="{{ order.pk }}">移出购物车</botton>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    {% if forloop.last and orderitem.count == 1 %}
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    {% endif %}
+                    {% if forloop.last and orderitem.count == 2 %}
+                        <li></li>
+                        <li></li>
+                    {% endif %}
+                    {% if forloop.last and orderitem.count == 3 %}
+                        <li></li>
+                    {% endif %}
+
+                    {% if forloop.last and orderitem.count == 5 %}
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    {% endif %}
+                    {% if forloop.last and orderitem.count == 6 %}
+                        <li></li>
+                        <li></li>
+                    {% endif %}
+                    {% if forloop.last and orderitem.count == 7 %}
+                        <li></li>
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+            <div class="buyinfo">
+                <span class="total-price">总计：￥{{ order.amount }}</span>
+                <button class="pays" data-order="{{ order.pk }}">结算</button>
+                {% comment %}href="{% url 'cart:check_out' %}"{% endcomment %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

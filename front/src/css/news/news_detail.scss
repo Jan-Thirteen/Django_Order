@@ -1,0 +1,175 @@
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+@import "../common/constants.scss";
+
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            background: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            .news-wrapper{//新闻
+
+                .title{
+                    color: $mainFontColor;
+                    font-size: 24px;
+                    font-weight: 400; //标题比重
+                }
+                .new-image-warpper {
+                    //background-image: url("http://r9nruh1se.hd-bkt.clouddn.com/suancaiyu.jpg");
+                    height: 400px;
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    margin-top: 10px;
+                    .img-th{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                .news-info{
+                    $newsInfoHeight: 28px;
+                    overflow: hidden;
+                    margin-top: 20px;
+                    color: $assistFontColor;
+                    font-size: 14px;
+                    line-height: 28px;
+                    height: $newsInfoHeight;
+                    .info-group{
+                        float: left;
+                        .pub-time{
+                            margin-left: 20px;
+                        }
+                        .category{
+                            margin-left: 20px;
+                            background: $themeColor;
+                            color: #fff;
+                            padding: 0 5px;
+                            border-radius: 2px;//圆角
+                        }
+                    }
+                    .share-group{
+                        float: right;
+                        overflow: hidden;
+                        span{
+                            float: left;
+                        }
+                        .share-item{
+                            background-image: url("https://www.xfz.cn/static/build/images/share.png");
+                            background-size: 240%;
+                            background-repeat: no-repeat;
+                            width: 28px;
+                            height: 28px;
+                            float: left;
+                        }
+                        .weixin{
+                        }
+                        .weibo{
+                            background-position: -39px 0;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+
+                .article{
+                    margin-top: 20px;
+                    img{
+                        max-width: 100%;
+                    }
+                }
+                .buyinfo{
+                    float: right;
+                    .price{
+                        font-size: larger;
+                        color: #f76363;
+                    }
+                    .buy-btn {
+                        color: #fff;
+                        background: #ff8d3f;
+                        height: 40px;
+                        width: 120px;
+                        display: inline-block;
+                        text-align: center;
+                        line-height: 40px;
+                        border-radius: 5px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            .comment-wrapper{//评论
+                border-top: 1px solid $lineColor;
+                padding-top: 20px;
+                .title{
+                    color: $mainFontColor;
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                .comment-textarea{
+                    margin-top: 10px;
+                    width: 100%;
+                    resize: none;
+                    outline: none;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    padding: 6px 10px;
+                    box-sizing: border-box;
+                }
+                .nologin-textarea{//没有登陆时的输入框样式
+                    height: 40px;
+                    line-height: 26px;
+                    overflow: hidden;
+                }
+                .logined-textarea{//登录之后的输入框样式
+                    height: 80px;
+                }
+                .submit-btn-group{//提交按钮
+                    text-align: right;
+                    margin-top: 14px;
+                    .submit-btn{
+                        background: $themeColor;
+                        border: none;
+                        padding: 10px 20px;
+                        color: #fff;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                }
+                .comment-list{//评论列表
+                    margin-top: 20px;
+                    li{
+                        border-bottom: 1px solid $lineColor;
+                        padding-bottom: 20px;
+                        margin-bottom: 20px;
+                        .comment-info{
+                            overflow: hidden;
+                            height: 40px;
+                            line-height: 40px;
+                            color: $assistFontColor;
+                            font-size: 16px;
+                            .avatar{
+                                float: left;
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                            }
+                            .author{
+                                float: left;
+                                margin-left: 20px;
+                            }
+                            .pub-time{
+                                float: right;
+                            }
+                        }
+                        .comment-content{
+                            margin-left: 60px;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

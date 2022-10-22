@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="margin: 0 auto">
+    <h1>看什么看,快买!</h1>
+    <input type="button" id="btn_ajax" value="点我即可购买">
+</div>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#btn_ajax").click(function () {
+            $.ajax({
+                url: '{% url "payinfo:good_list" %}',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function (res) {
+                    if (res.status === 1) {
+                        // 跳转到支付链接
+                        location.href = res.url
+                    } else {
+
+                    }
+                }
+            })
+        })
+    })
+
+</script>
+</body>
+</html>

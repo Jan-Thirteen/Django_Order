@@ -1,0 +1,94 @@
+@import "init.scss";
+@import "constants.scss";
+
+.header{
+  width: 100%;
+  height: 64px;
+  background: #3a3a3a;
+  position: fixed; //固定定位，跟随浏览器变动
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 100;//导航条永远在上面
+
+  .container{
+      width: $pageWidth;
+      height: 100%;
+      margin: 0 auto; //居中
+      overflow: hidden;
+      .logo-box {
+          width: 140px;
+          height: 49px;
+          //background: url("http://r9nruh1se.hd-bkt.clouddn.com/Snipaste_2022-04-08_17-45-14.png") no-repeat; //不重复
+          //background-size: 100%;
+          margin-top: 8px;
+          float: left;
+          a{
+              display: block;
+              width: 100%;
+              height: 100%;
+          }
+      }
+      .nav {
+      margin-left: 128px;
+      float: left;
+      li {
+        float: left;
+        margin-right: 40px;
+        line-height: $navHeight; //导航条的高度文字会居中显示
+        height: $navHeight;
+        box-sizing: border-box;//指定边框出现的位置
+        a{
+          color: #fff;
+        }
+        &.active {//当父标签li被选中，加载样式
+          border-bottom: 5px solid #5c87d9; //底部边框，用来做被选中的样式 solid表示是实线，后面是颜色
+        }
+      }
+     }
+      .auth-box {
+          float: right;
+          line-height: $navHeight;
+          height: $navHeight; //导航条的高度
+          color: #fff;
+          .iconfont { //登录的图标
+            color: #fff;
+            font-size: 20px;
+          }
+          a {
+            color: #fff;
+          }
+          .user-more-box{//导航条用户名
+                background: #fff;
+                width: 140px;
+                //height: 90px;
+                position: absolute;
+                box-shadow: 0 3px 4px #ccc;
+                border-radius: 5px;
+                font-size: 14px;
+                z-index: 2;
+                display: none;
+                transform: translate(-20%, 0px);  // todo 用户名下的菜单
+
+                .triangle{//小三角
+                    border: solid transparent;
+                    border-width: 10px;
+                    border-bottom-color: #fff;
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    margin-top: -20px;
+                    margin-left: 60px;
+                }
+                a{
+                    text-align: center;
+                    height: 44px;
+                    color: #6d85ac!important;
+                    display: block;
+                    line-height: 44px;
+                }
+            }
+      }
+
+  }
+}

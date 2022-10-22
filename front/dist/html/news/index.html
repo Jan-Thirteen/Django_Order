@@ -1,0 +1,23 @@
+{% extends 'base/front_base.html' %} {% load news_filters %} {% block head %}<script src="{% static 'arttemplate/template-web.js' %}"></script><link rel=stylesheet href="{% static 'css/news/index.min.css' %}"><script src="{% static 'js/index.min.js' %}"></script><script id=news-item type=text/html>{% comment %}关闭对字符串的解析{% endcomment %}
+{% verbatim %}
+{{ each goods item index }}
+<li>
+    <div class="thumbnail-group">
+        <a href="/goods/{{ item.id }}/">
+            <img src="{{ item.thumbnail }}" alt="">
+        </a>
+    </div>
+    <div class="news-group">
+        <p class="title">
+            <a href="/goods/{{ item.id }}/">{{ item.name }}</a>
+        </p>
+        <p class="desc">
+            ￥{{ item.price }}
+        </p>
+        <p class="more">
+            <span class="category">{{ item.category.name }}</span>
+        </p>
+    </div>
+</li>
+{{ /each }}
+{% endverbatim %}</script>{% comment %}<i class="icon-tianjia iconfont"></i>{% endcomment %} {% endblock %} {% block title %} 毕业设计 {% endblock %} {% block main %}<div class=main><div class=wrapper><div class=main-content-wrapper><div class=banner-group id=banner-group><ul class=banner-ul id=banner-ul>{% for banner in banners %}<li><a href="{{ banner.link_to }}"><img src="{{ banner.image_url}}" alt=""></a></li>{% endfor %}</ul><span class="arrow left-arrow">‹</span> <span class="arrow right-arrow">›</span><div class=page-control-group><ul class=page-control></ul></div></div><div class=list-outer-group><ul class=list-tab><li data-category=0 class=active><a href=javascript:void(0);>全部新品</a></li>{% for category in categories %}<li data-category="{{ category.pk }}"><a href=javascript:void(0);>{{ category.name }}</a></li>{% endfor %}</ul><ul class=list-inner-group>{% for item in goods %}<li><div class=thumbnail-group>{% comment %}{% url 'goods:goods_detail' goods_id=goods.pk %}{% endcomment %} <a href="{% url 'goods:goods_detail' goods_id=item.pk %}"><img src="{{ item.thumbnail }}" alt=""></a></div><div class=news-group><p class=title>{% comment %}{% url 'goods:goods_detail' goods_id=goods.pk %}{% endcomment %} <a href="{% url 'goods:goods_detail' goods_id=item.pk %}">{{ item.name }}</a></p><p class=desc>￥{{ item.price }}</p>{#<div class="icon-tianjia iconfont"></div>#}<p class=more><span class=category>{{ item.category.name }}</span></p></div></li>{% endfor %}</ul><div class=load-more-group><button class=load-more id=load-more-btn>查看更多</button></div></div></div>{% include 'common/sidebar.html' %}</div></div>{% endblock %}

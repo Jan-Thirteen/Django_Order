@@ -1,0 +1,143 @@
+@import "constants.scss";
+
+body {
+  //background: skyblue;
+  background: #f2f2f2;
+}
+
+.main{
+  width: 100%;
+  margin-top: $navHeight + 20px;//内容部分距离导航条的高度
+  .wrapper {
+    width: $pageWidth;
+    margin: 0 auto; //居中
+    overflow: hidden; //清除浮动，如果子盒子都浮动了，父盒子就获取不到高度，即高度为0，为了和子盒子高度保持一致
+    .main-content-wrapper {
+      float: left;
+      width: $mainBoxWidth;
+    }
+  }
+}
+
+.main{
+  .wrapper{
+    .sidebar-wrapper {//侧边栏
+      float: right;
+      width: 356px;
+      background: #fff;
+      .title-group {//在线课堂标题
+        padding: 20px;
+        overflow: hidden;
+        .title {
+          float: left;
+          font-size: 18px;
+          color: $mainFontColor;
+        }
+        .more {
+          float: right;
+          font-size: 14px;
+          color: $themeColor;
+        }
+      }
+      .advertise-group {
+        img {//广告图片
+          width: 100%;
+        }
+      }
+      .focus-group{//关于我们
+        padding: 0 20px;
+        overflow: hidden;
+        .left-group {//左边知乎微博头条
+          width: 190px;
+          float: left;
+          li {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background: url("https://www.xfz.cn/static/build/images/side-icon.png");
+            background-repeat: no-repeat;//图片不重复
+            background-size: 26%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            a {
+              float: left;//让文字浮动，不要挡住背景图
+              margin-left: 64px;
+              color: $assistFontColor;
+              font-size: 14px;
+            }
+          }
+          .zhihu {
+            background-position: 0 0;
+          }
+          .weibo {
+            background-position: 0 -63px;
+          }
+          .toutiao {
+            background-position: 0 -122px;
+          }
+        }
+        .right-group {//公众号
+          float: right;
+          width: 100px;
+          //background: url("http://r9nruh1se.hd-bkt.clouddn.com/1649408199397.png");
+          background: url("http://127.0.0.1:8000/media/EEB57A6D3EC68B7E59FF0473D5BD952A.jpg");
+          background-repeat: no-repeat;
+          background-size: 100%;
+          .desc {
+            margin-top: 100px;
+            color: $assistFontColor;
+            font-size: 12px;
+          }
+        }
+      }
+      .hot-news-group{//热门推荐
+        .hot-list-group{
+          li {
+            padding: 0 20px 20px;
+            overflow: hidden;
+            border-bottom: 1px solid $lineColor;
+            .left-group {
+              float: left;
+              width: 204px;
+              height: 72px;
+              position: relative;
+              .title {
+                font-size: 16px;
+                a {
+                  color: $mainFontColor;
+                  &:hover{
+                    color: $themeColor;
+                  }
+                }
+              }
+              .more {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                font-size: 12px;
+                .category {//更多 下面的分类
+                  color: $themeColor;
+                  float: left;
+                }
+                .pub-time {
+                  float: right;
+                  color: $assistFontColor;
+                }
+              }
+            }
+            .right-group {
+              float: right;
+              width: 102px;
+              height: 72px;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
